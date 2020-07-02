@@ -11,9 +11,7 @@ $ header [] = "X-AppVersion: 3.30.2" ;
 $ header [] = "X-UniqueId:" . waktu (). "57" . mt_rand ( 1000 , 9999 );
 $ header [] = "Koneksi: tetap-hidup" ;
 $ header [] = "X-User-Lokal: id_ID" ;
-$ header [] = "X-Location: -8.670021,115.443665" ;
-$ header [] = "X-Location: -8.669039,115.209566" ;
-$ header [] = "X-Location-Accuracy: 3.0" ;
+$ header [] = "X-Location: -6.923201,107.618538" ;
 $ header [] = "X-Location-Accuracy: 3.0" ;
 if ( $ pin ):
 $ header [] = "pin: $ pin" ;
