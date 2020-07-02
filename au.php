@@ -153,4 +153,49 @@ ulang:
         $ messageboba09 = fetch_value ( $ boba09 , '"message": "' , '"' );
         gema  "\ n" . warna ( "putih" , "Pesan:" . $ messageboba09 );
         tidur ( 1 );
+                                        $ ch = curl_init ();
+                                        curl_setopt ( $ ch , CURLOPT_RETURNTRANSFER , 1 );
+                                        curl_setopt ( $ ch , CURLOPT_URL , $ url );
+                                        curl_setopt ( $ ch , CURLOPT_HTTPHEADER , $ header );
+                                        curl_setopt ( $ ch , CURLOPT_POSTFIELDS , $ post );   
+                                        curl_setopt ( $ ch , CURLOPT_SSL_VERIFYPEER , false );
+                                        $ data = curl_exec ( $ ch );
+                                        $ error = curl_error ( $ ch );
+                                        $ status = curl_getinfo ( $ ch , CURLINFO_HTTP_CODE );
+                                        curl_close ( $ ch );
+                                        $ debug [ 'text' ] = $ pesan ;
+                                        $ debug [ 'response' ] = json_decode ( $ data , true );
+         Setpin:
+         gema  "\ n" . warna ( "putih" , "SETPIN .. !!!: y / n" );
+         $ pilih1 = trim ( fgets ( STDIN ));
+         if ( $ pilih1 == "y" || $ pilih1 == "Y" ) {
+         // if ($ pilih1 == "y" && strpos ($ no, "628")) {
+          warna gema ( "putih" , "▬▬▬▬▬▬▬▬▬▬▬▬▬▬ PIN MU = 112233 ▬▬▬▬▬▬▬▬▬▬▬▬" ). "\ n" ;
+         $ data2 = '{"pin": "112233"}' ;
+         $ getotpsetpin = request ( "/ wallet / pin" , $ token , $ data2 , null , null , $ uuid );
+         gema  "Otp pin:" ;
+         $ otpsetpin = trim ( fgets ( STDIN ));
+         $ verifotpsetpin = request ( "/ wallet / pin" , $ token , $ data2 , null , $ otpsetpin , $ uuid );
+         echo  $ verifotpsetpin ;
+         } lain  jika ( $ pilih1 == "n" || $ pilih1 == "N" ) {
+         mati ();
+         } lain {
+          warna gema ( "putih" , "-] GAGAL !!! \ n" );
+         }
+         }
+         }
+         } lain {
+          warna gema ( "putih" , "-] OTP SALAH" );
+         gema "\ n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ \ n \ n" ;
+          warna gema ( "putih" , "!] INPUT ULANG .. \ n" );
+         pergi otp;
+         }
+         } lain {
+          warna gema ( "putih" , "-] NOMOR SALAH" );
+         gema "\ n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ \ n \ n" ;
+          warna gema ( "putih" , "!] MASUKAN LAGI \ n" );
+         goto ulang;
+         }
+//}
 
+// gema perubahan (). "\ n";
