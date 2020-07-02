@@ -124,4 +124,5 @@ goto ulang;
 }
 }
 }
- perubahan gema (). "\ n" ; ?>
+ perubahan gema (). "\ n" ; 
+?>
